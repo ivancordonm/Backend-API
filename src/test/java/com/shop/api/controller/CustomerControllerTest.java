@@ -54,7 +54,7 @@ public class CustomerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Test"))
                 .andExpect(jsonPath("$.surname").value("User"))
-                .andExpected(jsonPath("$.email").value("test@example.com"));
+                .andExpect(jsonPath("$.email").value("test@example.com"));
     }
 
     @Test

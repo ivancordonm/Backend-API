@@ -3,9 +3,15 @@ package com.shop.api.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "customers")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,24 +30,9 @@ public class Customer {
     @Column(nullable = false, unique = true)
     private String email;
 
-    public Customer() {}
-
     public Customer(String name, String surname, String email) {
         this.name = name;
         this.surname = surname;
         this.email = email;
     }
-
-    // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
-    public String getSurname() { return surname; }
-    public void setSurname(String surname) { this.surname = surname; }
-
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
 }
