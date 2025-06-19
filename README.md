@@ -54,6 +54,11 @@ The application will start on `http://localhost:8080`
 mvn test
 ```
 
+### API Documentation
+- **Swagger UI**: `http://localhost:8080/swagger-ui.html`
+- **OpenAPI JSON**: `http://localhost:8080/v3/api-docs`
+- **OpenAPI YAML**: `http://localhost:8080/v3/api-docs.yaml`
+
 ### API Endpoints
 
 #### Customers
@@ -96,5 +101,7 @@ You can access H2 console at `http://localhost:8080/h2-console` with:
 - Spring Boot 3.2.1
 - Spring Data JPA
 - H2 Database
+- Lombok
+- OpenAPI 3 (Swagger)
 - Maven
 - JUnit 5
