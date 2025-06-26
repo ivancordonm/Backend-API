@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "type": "spring-boot",
+            "name": "Spring Boot Application",
+            "mainClass": "com.shop.api.BackendApiApplication",
+            "module": "backend-api",
+            "environment": {
+                "JAVA_HOME": "${env:JAVA_HOME}"
+            }
+        }
+    ]
+}
