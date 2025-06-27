@@ -1,9 +1,10 @@
-package com.alkemy.ong.models;
+package com.shop.api.model;
 
-import javax.persistence.*;
-import java.util.Objects;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "orders")
 public class Order {
 
@@ -11,28 +12,11 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    // other fields...
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
 
-    public Integer getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    private java.util.List<OrderItem> items;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    // other getters and setters...
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Order)) return false;
-        Order order = (Order) o;
-        return Objects.equals(getId(), order.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
 }

@@ -44,11 +44,12 @@ public class DataInitializer {
             oi1.setShopItem(item1); oi1.setQuantity(1);
             OrderItem oi2 = new OrderItem();
             oi2.setShopItem(item2); oi2.setQuantity(2);
-            orderItemRepo.saveAll(List.of(oi1, oi2));
-
+            // Asignar la relación inversa
             // Pedidos
             Order o1 = new Order();
             o1.setCustomer(c1);
+            oi1.setOrder(o1);
+            oi2.setOrder(o1);
             o1.setItems(List.of(oi1, oi2));
             orderRepo.save(o1);
         };

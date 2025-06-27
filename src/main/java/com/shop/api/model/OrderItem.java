@@ -1,7 +1,9 @@
 package com.shop.api.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 public class OrderItem {
     @Id
@@ -12,6 +14,10 @@ public class OrderItem {
     @JoinColumn(name = "shopitem_id")
     private ShopItem shopItem;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
+
+    @Column(nullable = false)
     private Integer quantity;
-    // getters y setters
 }
